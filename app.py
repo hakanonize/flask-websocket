@@ -1,4 +1,4 @@
-from flask import Flask, request, session
+from flask import Flask, render_template, request, session
 from flask_socketio import SocketIO, join_room, leave_room, emit
 from flask_cors import CORS
 from flask_session import Session
@@ -21,7 +21,7 @@ def randomText():
 
 @app.route('/')
 def index():
-    return 'Hello World'
+    return render_template('index.html')
 
 
 @app.route('/chat',methods = ['GET', 'POST'])
